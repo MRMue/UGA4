@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-  <title>Home</title>
+  <title>Skript</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
   <!--
@@ -26,10 +26,72 @@
     <a href="opt.html">Optionen</a>
   </div>
   <div ID="content">
-    <h2></h2>
-    <p>
-      TBD
-    </p>
+    <h2>JavaScript-Übung</h2>
+    <script>
+      document.write("<h3>Allgemeines</h3>");
+      document.write("Dies ist ein Text mit JavaScript erzeugt");
+      document.write("<br><br>");
+
+      x = 17;
+      y = 4;
+      z = x + y;
+      document.write("Rechenergebnis: " + z);
+      document.write("<br><br>");
+
+      t1 = "Wo geht er denn hin?";
+      t2 = "Im Kreis";
+      T = t1 + " " + t2 + ", " + z + "-mal";
+      document.write(T);
+
+      document.title = "haha";
+      document.write("<br><br>");
+
+      r = "Rot";
+      G = 1;
+      b = "Blau";
+      if (G == 1) {
+        document.write("Log: " + r);
+        console.log(r);
+      }
+      else {
+        document.write("Log: " + b);
+        console.log(b);
+      }
+
+      document.write("<h3>Objekt Datum</h3>");
+      jetzt = new Date();
+      Y = jetzt.getFullYear();
+      M = jetzt.getMonth() + 1;
+      D = jetzt.getDate();
+      H = jetzt.getHours();
+      m = jetzt.getMinutes();
+      s = jetzt.getSeconds();
+      if (M < 10) {
+        M = "0" + M;
+      }
+      if (D < 10) {
+        D = "0" + D;
+      }
+      if (H < 10) {
+        H = "0" + H;
+      }
+      if (m < 10) {
+        m = "0" + m;
+      }
+      if (s < 10) {
+        s = "0" + s;
+      }
+      DateTime = D + "." + M + "." + Y + " - " + H + ":" + m + ":" + s;
+      document.write(DateTime);
+
+      Text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua"
+    </script>
+    <h3>Dynamisches HTML</h3>
+    <h4 onmouseover="this.innerHTML=Text" onmouseout="this.innerHTML='Original'"> Original</h4>
+
+    <h3>Button</h3>
+    <button onclick="document.body.style.background='#FFCC88';">Orange</button>
+    <button onclick="document.body.style.background='#EFEFEF';">Grau</button>
   </div>
   <div ID="footer">
     © 2024 Erstellt von mir
