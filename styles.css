@@ -1,0 +1,33 @@
+html {
+    background-color: lightgrey;
+    font-family: 'Lucida Sans', 'Courier New', Courier, monospace;
+    margin: 0.5em auto;
+    width: 950px;
+}
+
+#header {
+    background-color: bisque;
+    font-size: large;
+    padding: 0.5em;
+    text-align: center;
+}
+
+#menu {
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+#content {
+    background-color: white;
+    padding: 0.5em;
+}
+
+#footer {
+    background-color: grey;
+    padding: 0.5em;
+    text-align: right;
+}
+
+.act {
+    color:hotpink;
+}
