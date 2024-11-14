@@ -1,4 +1,4 @@
-html {
+body {
     background-color: lightgrey;
     font-family: 'Lucida Sans', 'Courier New', Courier, monospace;
     margin: 0.5em auto;
@@ -7,14 +7,19 @@ html {
 
 #header {
     background-color: bisque;
+    background-image: url(https://www.demografie-portal.de/DE/Fakten/Bilder/bevoelkerungsentwicklung-regional-niedersachsen.png?__blob=normal&v=3);
+    background-position: center;
+    background-size: 100%;
     font-size: large;
     padding: 0.5em;
     text-align: center;
+    /*text-shadow: white;*/
 }
 
 #menu {
     font-weight: bold;
     padding: 0.5em;
+    word-spacing: .5em;
 }
 
 #content {
@@ -29,5 +34,29 @@ html {
 }
 
 .act {
-    color:hotpink;
+    color: hotpink;
+}
+
+@media only screen and (max-width:950px) {
+    body {
+        width: 100%;
+    }
+
+    #menu a {
+        display: block;
+        border-bottom: 1px solid #afafaf;
+        padding: 5px 0 5px 20px;
+    }
+}
+
+@media print {
+
+    #menu,
+    #footer {
+        display: none;
+    }
+
+    #content {
+        font-family: Wingdings, 'Zapf Dingbats', sans-serif;
+    }
 }
