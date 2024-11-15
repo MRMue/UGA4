@@ -92,6 +92,27 @@
     <h3>Button</h3>
     <button onclick="document.body.style.background='#FFCC88';">Orange</button>
     <button onclick="document.body.style.background='#EFEFEF';">Grau</button>
+
+    <h3>Input Output: Multiplikationsrechner</h3>
+    <form style="margin:20px; padding:20px; border:1px dotted blak; width:350px;">
+      <input type="number" name="M1" value="">
+      <input type="number" name="M2" value="">
+      <input type="number" name="out" value="" readonly>
+      <br><br>
+      <input type="button" name="add" value=" + "
+        onclick="this.form.out.value = Number(this.form.M1.value) + Number(this.form.M2.value);">
+      <br><br>
+      <input type="button" name="sub" value=" - "
+        onclick="this.form.out.value = this.form.M1.value - this.form.M2.value;">
+      <br><br>
+      <input type="button" name="mul" value=" * "
+        onclick="this.form.out.value = this.form.M1.value * this.form.M2.value;">
+      <br><br>
+      <input type="button" name="div" value=" : "
+        onclick="this.form.out.value = this.form.M1.value / this.form.M2.value;">
+      <br><br>
+      <input type="reset" name="clear" value="C">
+    </form>
   </div>
   <div ID="footer">
     © 2024 Erstellt von mir
