@@ -39,7 +39,7 @@
         <td id="PN">&nbsp;</td>
       </tr>
       <tr>
-        <td><button onclick="restore('P');fill_up('T');">abholen</button></td>
+        <td><button onclick="transport();">abholen</button></td>
       </tr>
     </table>
     <table border="1" class="post">
@@ -53,7 +53,7 @@
         <td id="TN">&nbsp;</td>
       </tr>
       <tr>
-        <td><button onclick="hand_out();">verteilen</button></td>
+        <td><button onclick="handOut();">verteilen</button></td>
       </tr>
     </table>
     <table border="1" class="post">
@@ -72,7 +72,7 @@
     </table>
 
     <script>
-      function fill_up(ID) {
+      function fillUp(ID) {
         document.getElementById(ID + "A").innerHTML = null;
         for (let index = 0; index < Stapel.length; index++) {
           document.getElementById(ID + "A").innerHTML += Stapel[index] + "<br>";
@@ -83,31 +83,39 @@
         document.getElementById(ID + "A").innerHTML = empty;
         document.getElementById(ID + "N").innerHTML = empty;
       }
-      function hand_out() {
+      function transport() {
+        if (document.getElementById("PA").innerHTML != empty) {
+          restore('P');
+          fillUp('T');
+        }
+      }
+      function handOut() {
         sum0 = 0;
         sum1 = 0;
-        restore("T");
-        document.getElementById("AA0").innerHTML = null;
-        document.getElementById("AA1").innerHTML = null;
-        for (let index = 0; index < Stapel.length; index++) {
-           if (Stapel[index] == 'Riese') {
+        if (document.getElementById("TA").innerHTML != empty) {
+          restore("T");
+          document.getElementById("AA0").innerHTML = null;
+          document.getElementById("AA1").innerHTML = null;
+          for (let index = 0; index < Stapel.length; index++) {
+            if (Stapel[index] == 'Riese') {
               document.getElementById("AA0").innerHTML += Stapel[index] + "<br>";
-              sum0 += 1;
-           }
-           else{
+              sum0++;
+            }
+            else {
               document.getElementById("AA1").innerHTML += Stapel[index] + "<br>";
-              sum1 += 1;
-          }      
-        }     
-        document.getElementById("AN0").innerHTML = sum0;
-        document.getElementById("AN1").innerHTML = sum1;
+              sum1++;
+            }
+          }
+          document.getElementById("AN0").innerHTML = sum0;
+          document.getElementById("AN1").innerHTML = sum1;
+        }
       }
 
       AL = new Array("Riese", "Zwerg");
       Stapel = new Array(AL[0], AL[1], AL[1], AL[0], AL[1], AL[0], AL[0], AL[0], AL[1], AL[0], AL[1], AL[1], AL[1], AL[0], AL[1]);
       empty = "&nbsp;";
 
-      fill_up("P");
+      fillUp("P");
       //document.write(Stapel);
     </script>
     <br style="clear:left">

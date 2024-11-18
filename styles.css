@@ -42,8 +42,32 @@ body {
     width: 200px;
     margin-right: 30px;
 }
+
 .post tr:nth-of-type(1) {
-font-weight: bold;
+    font-weight: bold;
+}
+
+.tab {
+    border-collapse: collapse;
+    margin: 25px 0 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+.tab tr:nth-of-type(even) {
+    background: #DFDFDF;
+}
+
+.tab tr:nth-of-type(1) {
+    font-weight: bold;
+}
+
+.tab tr td:nth-last-of-type() {
+    font-weight: bold;
+}
+
+.tab tr td:nth-last-of-type() {
+    border-bottom: 1px solid #AFAFAF;
 }
 
 @media only screen and (max-width:950px) {

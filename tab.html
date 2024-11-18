@@ -18,7 +18,7 @@
     <h1>Hallöchen</h1>
   </div>
   <div ID="menu">
-    <a href="index.html">Start</a>
+    <a href="i.html">Start</a>
     <a href="tab.html" class="act">Tabelle</a>
     <a href="txt.html">Text</a>
     <a href="post.html">Post</a>
@@ -27,24 +27,88 @@
     <a href="opt.html">Optionen</a>
   </div>
   <div ID="content">
-    <h2>Tabelleeeee</h2>
-    <table>
+    <h2>Verkaufszahlen von anlogen Karten</h2>
+    <h3>Statische HTML-Tabelle</h3>
+    <table class="tab">
       <tr>
-        <th>Test1</th>
-        <th>Test2</th>
-        <th>Test3</th>
+        <td>Jahr</td>
+        <td>TK25</td>
+        <td>TK50</td>
+        <td>WK</td>
+        <td id="sum">Summe</td>
       </tr>
       <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
+        <td>2010</td>
+        <td>200</td>
+        <td>300</td>
+        <td>100</td>
+        <td>-</td>
       </tr>
       <tr>
-        <td>4</td>
-        <td>5</td>
-        <td>6</td>
+        <td>2011</td>
+        <td>200</td>
+        <td>300</td>
+        <td>100</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2013</td>
+        <td>450</td>
+        <td>125</td>
+        <td>20</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2014</td>
+        <td>400</td>
+        <td>150</td>
+        <td>150</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2015</td>
+        <td>100</td>
+        <td>100</td>
+        <td>50</td>
+        <td>-</td>
       </tr>
     </table>
+    <h3>Dynamisch erstellte JS-Tabelle</h3>
+    <script>
+      head = new Array("Jahr", "TK25", "TK50", "WK", "Summe");
+      L = head.length;
+      z = -1;
+      tab = new Array();
+      tab[z+=1] = new Array(2010, 200, 300, 100, 0);
+      tab[z+=1] = new Array(2011, 200, 300, 100, 0);
+      tab[z+=1] = new Array(2012, 450, 125, 20, 0);
+      tab[z+=1] = new Array(2013, 450, 125, 20, 0);
+      tab[z+=1] = new Array(2014, 400, 150, 150, 0);
+      tab[z+=1] = new Array(2015, 100, 100, 50, 0);
+      H = tab.length;
+
+      document.write("<table class='tab'>");
+
+      document.write("<tr>");
+      for (let i = 0; i < L; i++) {
+        document.write("<td>" + head[i] + "</td>");
+      }
+      document.write("</tr>");
+
+      for (let i = H-1; i >= 0; i--) {
+        document.write("<tr>");
+        for (let j = 0; j < L; j++) {
+          if (j > 0 && j < L - 1) {
+            tab[i][L - 1] += tab[i][j];
+          }
+          document.write("<td>" + tab[i][j] + "</td>");
+        }
+        document.write("</tr>");
+      }
+
+      document.write("</table>");
+      //alert(tab);
+    </script>
   </div>
   <div ID="footer">
     © 2024 Erstellt von mir
