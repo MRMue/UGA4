@@ -33,10 +33,13 @@
         <td>Poststelle</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
+        <td id="PA">&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
+        <td id="PN">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><button onclick="restore('P');fill_up('T');">abholen</button></td>
       </tr>
     </table>
     <table border="1" class="post">
@@ -44,10 +47,13 @@
         <td>Transport</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
+        <td id="TA">&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
+        <td id="TN">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><button onclick="hand_out();">verteilen</button></td>
       </tr>
     </table>
     <table border="1" class="post">
@@ -56,24 +62,54 @@
         <td>Zwerg</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td id="AA0">&nbsp;</td>
+        <td id="AA1">&nbsp;</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td id="AN0">&nbsp;</td>
+        <td id="AN1">&nbsp;</td>
       </tr>
     </table>
+
     <script>
+      function fill_up(ID) {
+        document.getElementById(ID + "A").innerHTML = null;
+        for (let index = 0; index < Stapel.length; index++) {
+          document.getElementById(ID + "A").innerHTML += Stapel[index] + "<br>";
+        }
+        document.getElementById(ID + "N").innerHTML = Stapel.length;
+      }
+      function restore(ID) {
+        document.getElementById(ID + "A").innerHTML = empty;
+        document.getElementById(ID + "N").innerHTML = empty;
+      }
+      function hand_out() {
+        sum0 = 0;
+        sum1 = 0;
+        restore("T");
+        document.getElementById("AA0").innerHTML = null;
+        document.getElementById("AA1").innerHTML = null;
+        for (let index = 0; index < Stapel.length; index++) {
+           if (Stapel[index] == 'Riese') {
+              document.getElementById("AA0").innerHTML += Stapel[index] + "<br>";
+              sum0 += 1;
+           }
+           else{
+              document.getElementById("AA1").innerHTML += Stapel[index] + "<br>";
+              sum1 += 1;
+          }      
+        }     
+        document.getElementById("AN0").innerHTML = sum0;
+        document.getElementById("AN1").innerHTML = sum1;
+      }
 
-      //Namen = new Array("Anita", "Bettina", "Christa", "Doris")
-      //for (let index = 0; index < Namen.length; index++) {
-      //  document.write(Namen[index] + "<br>");
-      //}
+      AL = new Array("Riese", "Zwerg");
+      Stapel = new Array(AL[0], AL[1], AL[1], AL[0], AL[1], AL[0], AL[0], AL[0], AL[1], AL[0], AL[1], AL[1], AL[1], AL[0], AL[1]);
+      empty = "&nbsp;";
+
+      fill_up("P");
+      //document.write(Stapel);
     </script>
-    <p>
-
-    </p>
     <br style="clear:left">
   </div>
   <div ID="footer">
